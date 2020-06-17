@@ -3,6 +3,7 @@
 namespace Willywes\ModuleGenerator\Controllers;
 
 use App\Http\Controllers\Intranet\GlobalController;
+use Illuminate\Support\Facades\Storage;
 use Willywes\ModuleGenerator\Models\Module;
 use Willywes\ModuleGenerator\Models\ModuleRoute;
 use Illuminate\Http\Request;
@@ -159,4 +160,40 @@ class ModuleController extends GlobalController
         ];
     }
 
+    public function storeController(Request $request)
+    {
+
+        try {
+            $module = Module::find($request->id);
+            $data = $request->data;
+
+            $file = app_path() . '/Http/Controllers/Intranet/' . $module->controller . '.php';
+
+            file_put_contents($file, $data);
+            session()->flash('success', 'Controlador creado correctamente');
+            return redirect()->back();
+
+        } catch (\Exception $exception) {
+            session()->flash('error', 'Controlador no creado ' . $exception->getMessage());
+            return redirect()->back();
+        }
+    }
+
+    public function storeClass(Request $request)
+    {
+        try {
+            $module = Module::find($request->id);
+            $data = $request->data;
+
+            $file = app_path() . '/Models/' . $module->class . '.php';
+
+            file_put_contents($file, $data);
+            session()->flash('success', 'Modelo creado correctamente');
+            return redirect()->back();
+
+        } catch (\Exception $exception) {
+            session()->flash('error', 'Modelo no creado ' . $exception->getMessage());
+            return redirect()->back();
+        }
+    }
 }

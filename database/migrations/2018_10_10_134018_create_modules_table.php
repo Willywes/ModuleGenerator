@@ -25,6 +25,7 @@ class CreateModulesTable extends Migration
             $table->string('singular_name');
             $table->string('plural_name');
             $table->text('description');
+            $table->longText('fillables');
             $table->timestamps();
         });
     }
