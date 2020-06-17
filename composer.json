@@ -1,0 +1,43 @@
+{
+    "name": "willywes/modulegenerator",
+    "description": "Módulo para la generación de cruds basados en sistemas y controladores propios nifty",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alejandro Isla",
+            "email": "willywes@hotmail.cl",
+            "homepage": "alejandroisla.cl"
+        }
+    ],
+    "homepage": "https://github.com/willywes/modulegenerator",
+    "keywords": ["Laravel", "ModuleGenerator"],
+    "require": {
+        "illuminate/support": "~5|~6|~7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3|~4",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Willywes\\ModuleGenerator\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Willywes\\ModuleGenerator\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Willywes\\ModuleGenerator\\ModuleGeneratorServiceProvider"
+            ],
+            "aliases": {
+                "ModuleGenerator": "Willywes\\ModuleGenerator\\Facades\\ModuleGenerator"
+            }
+        }
+    }
+}
