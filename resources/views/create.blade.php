@@ -114,7 +114,7 @@
                                             <input type="text" id="base_route" name="base_route" class="form-control"
                                                    required
                                                    value="{{ old('base_route') }}">
-                                            <small class="form-text text-muted">intranet.modules.users</small>
+                                            <small class="form-text text-muted">intranet.users</small>
                                         </div>
                                     </div>
                                     <div class="col-md-12">

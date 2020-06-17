@@ -10,8 +10,6 @@
     }
 
     function checkInArrayMethods(name) {
-        console.log(jQuery.inArray(name, defaultMethods));
-        console.log(jQuery.inArray(name, defaultMethods) > 0);
         return jQuery.inArray(name, defaultMethods) > 0;
 
     }

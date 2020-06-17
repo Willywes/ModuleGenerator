@@ -126,6 +126,9 @@
                     <li class="">
                         <a href="#tab-controller" data-toggle="tab" aria-expanded="false">Controlador</a>
                     </li>
+                    <li class="">
+                        <a href="#tab-routes" data-toggle="tab" aria-expanded="false">Rutas</a>
+                    </li>
                 </ul>
 
                 <!-- Tabs Content -->
@@ -136,6 +139,10 @@
 
                     <div class="tab-pane fade" id="tab-controller">
                         @include('willywes::controller.html')
+                    </div>
+
+                    <div class="tab-pane fade" id="tab-routes">
+                        @include('willywes::routes.html')
                     </div>
                 </div>
             </div>
@@ -153,6 +160,7 @@
 
     <script>
         let data = @json($object);
+        console.log(data);
 
         let defaultMethods = [
             '', // for bug
@@ -171,11 +179,14 @@
         $(() => {
             createClass();
             createController();
+            createRoutes();
         })
     </script>
 
     @include('willywes::model.scripts')
 
     @include('willywes::controller.scripts')
+
+    @include('willywes::routes.scripts')
 
 @endsection

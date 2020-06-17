@@ -74,7 +74,7 @@
                 }
             ];
 
-            @if($config['action']['changeStatus'])
+            @if($config['action']['changeStatus'] and \Route::has($config['route']  . 'changeStatus'))
             columns.push({
                 title: 'Cambiar Estado',
                 field: 'changeStatus',
@@ -87,7 +87,7 @@
             });
             @endif
 
-            @if($config['action']['active'])
+            @if($config['action']['active'] and \Route::has($config['route'] . 'active'))
             columns.push({
                 title: 'Activo',
                 field: 'active',
