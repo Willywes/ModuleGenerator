@@ -107,7 +107,26 @@ class ModuleController extends GlobalController
 
     public function destroy($id)
     {
-        //
+        $object = Module::find($id);
+
+        if (!$object) {
+            session()->flash('warning', 'Modulo no encontrado.');
+            return redirect()->route($this->route . 'index');
+        }
+
+        if ($object->delete()) {
+
+            $file = app_path() . '/Http/Controllers/Intranet/' . $object->controller . '.php';
+            unlink($file);
+
+            $file = app_path() . '/Models/' . $object->class . '.php';
+            unlink($file);
+
+            session()->flash('success', 'Modulo eliminado correctamente.');
+            return redirect()->route($this->route . 'index');
+        }
+        session()->flash('error', 'No se ha podido eliminar el modulo.');
+        return redirect()->route($this->route . 'index');
     }
 
     private function getPermissionTemplate($name, $object, $item)
