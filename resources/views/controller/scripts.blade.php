@@ -6,7 +6,7 @@
     }
 
     function getCleanRouteName(name) {
-        return (name).replace(data.base_route + '.', '');
+        return (name).replace(data.base_route_name + '.', '');
     }
 
     function checkInArrayMethods(name) {
